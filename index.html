@@ -26,18 +26,6 @@
             padding-bottom: 10px;
             margin-top: 40px;
         }
-        #searchBox {
-            width: 98%;
-            max-width: 800px;
-            display: block;
-            margin: 0 auto 40px auto;
-            padding: 12px;
-            background-color: #2c2c2c;
-            border: 1px solid #bb86fc;
-            border-radius: 8px;
-            color: #e0e0e0;
-            font-size: 1.1em;
-        }
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -80,27 +68,81 @@
             content: '🔗';
             margin-right: 8px;
         }
-    </style>
+        /* --- Estilos para el buscador avanzado --- */
+        .search-controls {
+            display: flex;
+            gap: 15px; /* Espacio entre el filtro y el buscador */
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            align-items: center;
+        }
+
+        #categoryFilter {
+            flex-shrink: 0; /* Evita que el dropdown se encoja */
+            padding: 12px;
+            background-color: #2c2c2c;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .search-container {
+            width: 100%; /* El formulario ocupa el espacio restante */
+            margin: 0;
+        }
+  </style>
 </head>
 <body>
     <header>
         <h1>Brújula Digital: Colección de Herramientas OSINT</h1>
     </header>
+<div class="search-controls">
+    <select id="categoryFilter">
+        <option value="all">Todas las Categorías</option>
+        <option value="🌐 Frameworks, Blogs y Colecciones">Frameworks y Colecciones</option>
+        <option value="🤖 Inteligencia Artificial: Herramientas y Recursos">Inteligencia Artificial</option>
+        <option value="🔍 Motores de Búsqueda y Dorking">Búsqueda y Dorking</option>
+        <option value="👤 Inteligencia de Personas (SOCMINT)">SOCMINT</option>
+        <option value="💰 Finanzas, Criptomonedas y Negocios">Finanzas y Negocios</option>
+        <option value="🏛️ Registros Públicos y Bases de Datos">Registros Públicos</option>
+        <option value="🏢 Dominios, IP y Análisis Web">Dominios e IP</option>
+        <option value="🗺️ Geolocalización y Mapas (GEOINT)">GEOINT</option>
+        <option value="🖼️ Búsqueda y Análisis de Imágenes (IMINT)">IMINT</option>
+        <option value="🛡️ Ciberseguridad e Inteligencia de Amenazas">Ciberseguridad</option>
+        <option value="📦 Fugas de Datos y Darknet">Fugas y Darknet</option>
+        <option value="🛠️ Herramientas y Utilidades Generales">Herramientas Generales</option>
+        <option value="🔬 Research Tools">Research Tools</option>
+        <option value="🧪 Entornos de Práctica y Aprendizaje Interactivo">Entornos de Práctica</option>
+        <option value="📖 Recursos de Aprendizaje y Artículos">Recursos de Aprendizaje</option>
+        <option value="🔒 Comunicación y Almacenamiento Seguro">Comunicación Segura</option>
+        <option value="📂 Estudios de Casos e Investigaciones">Estudios de Casos</option>
+    </select>
 
-    <input type="text" id="searchBox" placeholder="Escribe aquí para filtrar herramientas...">
-
-    <section class="main-section">
+    <form class="search-container" onsubmit="return false;">
+        <input type="text" id="searchBox" placeholder="Buscar por título o etiqueta...">
+        <button type="submit" class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+    </form>
+</div>
+              <section class="main-section">     
         <h2>🌐 Frameworks, Blogs y Colecciones</h2>
         <div class="container">
             <div class="category-box">
                 <h3>Frameworks y Metabuscadores</h3>
                 <ul>
-                    <li><a href="https://osintframework.com/" target="_blank">OSINT Framework</a></li>
+                   <li><a href="https://osintframework.com/" target="_blank" data-tags="framework, osint, coleccion, recursos, mapa mental">OSINT Framework</a></li>
                     <li><a href="https://inteltechniques.com/" target="_blank">Intel Techniques</a></li>
                     <li><a href="https://www.osintcombine.com/tools" target="_blank">OSINT Combine Tools</a></li>
                     <li><a href="https://osint.sh/" target="_blank">OSINT.sh</a></li>
                     <li><a href="https://gofindwho.com/" target="_blank">GoFindWho</a></li>
                     <li><a href="https://recontool.org/" target="_blank">Recon Tool</a></li>
+                   <li><a href="http://rr.reuser.biz/" target="_blank">Reuser's Resources</a></li>
+                   <li><a href="http://rr.reuser.biz/" target="_blank">Reuser's Resources</a></li>
+                    <li><a href="https://www.avivadirectory.com/" target="_blank">Aviva Directory</a></li>
+                    <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques (Homepage)</a></li>
                     <li><a href="https://synapsint.com/index.php" target="_blank">SynapsInt</a></li>
                 </ul>
             </div>
@@ -158,6 +200,40 @@
                     <li><a href="https://start.me/p/Kg4ynn/prioritize-like-a-pro-your-eisenhower-matrix-temp" target="_blank">start.me: Eisenhower Matrix</a></li>
                     <li><a href="https://start.me/p/PL4lo9/gretchen-rubin-method-of-productivity" target="_blank">start.me: Gretchen Rubin Method</a></li>
                     <li><a href="https://start.me/p/gGqRKp/real-estate-in-the-hague" target="_blank">start.me: Real Estate</a></li>
+                    <li><a href="https://start.me/p/GEBalz/company-home-page" target="_blank">start.me: Company Home Page</a></li>
+                    <li><a href="https://start.me/p/7PP2lx/ocean-workspace" target="_blank">start.me: Ocean Workspace</a></li>
+                    <li><a href="https://start.me/p/5kkBqM/forest-workspace" target="_blank">start.me: Forest Workspace</a></li>
+                   <li><a href="https://start.me/p/Xyy6Ek/calm-workspace" target="_blank">start.me: Calm Workspace</a></li>
+                    <li><a href="https://start.me/p/GEgppm/ai-tools-and-resources" target="_blank">start.me: AI Tools & Resources</a></li>
+                   <li><a href="https://start.me/p/rxoGXx/edu-startpage" target="_blank">start.me: Edu Startpage</a></li>
+                   <li><a href="https://start.me/p/p61bgo/gaming" target="_blank">start.me: Gaming</a></li>
+                  <li><a href="https://start.me/p/9EmalX/hr-recruitment" target="_blank">start.me: HR & Recruitment</a></li>
+                   <li><a href="https://start.me/p/KMaagB/business-apps" target="_blank">start.me: Business Apps</a></li>
+                 <li><a href="https://start.me/p/PweyB2/lead-generation-collection" target="_blank">start.me: Lead Generation</a></li>
+                 <li><a href="https://start.me/p/lLzN12/class-home-page" target="_blank">start.me: Class Home Page</a></li>
+                 <li><a href="https://start.me/p/9EDkll/coronavirus-covid-19" target="_blank">start.me: Coronavirus COVID-19</a></li>
+                  <li><a href="https://start.me/p/4K2M9a/lets-plan-our-vacation-together" target="_blank">start.me: Vacation Planner</a></li>
+                  <li><a href="https://start.me/p/RMq8wD/rock-guitar-chords-tabs" target="_blank">start.me: Guitar Chords</a></li>
+                 <li><a href="https://start.me/p/onqkGY/osint" target="_blank">start.me: OSINT</a></li>
+                  <li><a href="https://start.me/p/wM20nX/blogging-platforms-tools" target="_blank">start.me: Blogging Platforms</a></li>
+                 <li><a href="https://start.me/p/DPDebo/new-employee-onboarding-page" target="_blank">start.me: New Employee Onboarding</a></li>
+                  <li><a href="https://start.me/p/xb2oKa/glen-s-rankins-photography-blog" target="_blank">start.me: Photography Blog</a></li>
+                   <li><a href="https://start.me/p/zpkMMO/deep-fake-tools-detection" target="_blank">start.me: Deep Fake Tools</a></li>
+                 <li><a href="https://start.me/p/9oEQPl/non-profit" target="_blank">start.me: Non-Profit</a></li>
+                <li><a href="https://start.me/p/7PPPvK/link-in-bio" target="_blank">start.me: Link in Bio</a></li>
+                <li><a href="https://start.me/p/ogmPRY/heidi-matthews-portal" target="_blank">start.me: Heidi Matthews Portal</a></li>
+                <li><a href="https://start.me/p/Kg4ynn/prioritize-like-a-pro-your-eisenhower-matrix-temp" target="_blank">start.me: Eisenhower Matrix</a></li>
+                <li><a href="https://start.me/p/PL4lo9/gretchen-rubin-method-of-productivity" target="_blank">start.me: Gretchen Rubin Method</a></li>
+                <li><a href="https://start.me/p/gGqRKp/real-estate-in-the-hague" target="_blank">start.me: Real Estate</a></li>
+                <li><a href="https://start.me/p/aNkNx8/read-it-later-your-pocket-alternative" target="_blank">start.me: Read It Later</a></li>
+                <li><a href="https://start.me/pages/us/osint" target="_blank">start.me: OSINT (Official Page)</a></li>
+                <li><a href="https://start.me/p/1kxyw9/v3nari-bookmarks" target="_blank">start.me: V3nari Bookmarks</a></li>
+              <li><a href="https://start.me/p/b5Aow7/asint_collection" target="_blank">start.me: ASINT Collection</a></li>
+              <li><a href="https://start.me/pages/us/osint" target="_blank">start.me: OSINT (Official Page)</a></li>
+            <li><a href="https://start.me/p/1kxyw9/v3nari-bookmarks" target="_blank">start.me: V3nari Bookmarks</a></li>
+            <li><a href="https://start.me/p/b5Aow7/asint_collection" target="_blank">start.me: ASINT Collection</a></li>
+            <li><a href="https://start.me/p/m6XQ08/osint" target="_blank">start.me: OSINT (m6XQ08)</a></li>
+              <li><a href="https://start.me/p/m6XQ08/osint" target="_blank">start.me: OSINT (m6XQ08)</a></li>
                     <li><a href="https://start.me/p/aNkNx8/read-it-later-your-pocket-alternative" target="_blank">start.me: Read It Later</a></li>
                     <li><a href="https://start.me/pages/" target="_blank">start.me Pages</a></li>
 					</ul>
@@ -337,8 +413,10 @@
                     <li><a href="https://mailtester.com/testmail.php" target="_blank">MailTester</a></li>
                     <li><a href="http://www.skymem.info/" target="_blank">Skymem</a></li>
                     <li><a href="https://verify-email.org/" target="_blank">Verify Email</a></li>
-                    <li><a href="https://www.voilanorbert.com/" target="_blank">Voila Norbert</a></li></ul></div><div class="category-box"><h3>Investigación de Números de Teléfono</h3><ul><li><a href="https://phonebook.cz/" target="_blank">Phonebook.cz</a></li><li><a href="https://github.com/sundowndev/PhoneInfoga" target="_blank">PhoneInfoga (GitHub)</a></li><li><a href="https://demo.phoneinfoga.crvx.fr/#/" target="_blank">PhoneInfoga (Demo)</a></li><li><a href="https://github.com/Chr0m0s0m3s/DeadTrap" target="_blank">DeadTrap (GitHub)</a></li><li><a href="https://tools.epieos.com/phone.php" target="_blank">Epieos Phone Tools</a></li><li><a href="https://www.zlookup.com/" target="_blank">Zlookup</a></li><li><a href="https://www.numlookup.com/" target="_blank">Numlookup</a></li><li><a href="https://phonesear.ch/" target="_blank">PhoneSear.ch</a></li><li><a href="https://www.neutrinoapi.com/account/main/" target="_blank">Neutrino API</a></li><li><a href="https://www.everyoneapi.com/" target="_blank">EveryoneAPI</a></li><li><a href="https://www.martinvigo.com/tools/phonerator/" target="_blank">Phonerator</a></li></ul></div><div class="category-box"><h3>Servicios de SMS y Verificación</h3><ul><li><a href="http://receive-sms-online.com/" target="_blank">Receive SMS Online</a></li><li><a href="https://temp-sms.org/" target="_blank">Temp SMS</a></li><li><a href="https://verifywithsms.com/" target="_blank">Verify With SMS</a></li><li><a href="https://www.textverified.com/" target="_blank">TextVerified</a></li><li><a href="https://www.juicysms.com/" target="_blank">JuicySMS</a></li><li><a href="https://smsprivacy.org/" target="_blank">SMS Privacy</a></li><li><a href="https://pastebin.com/phdkJg4G" target="_blank">Disposable SMS (Lista)</a></li></ul></div><div class="category-box"><h3>Servicios de Número Virtual</h3><ul><li><a href="https://www.sideline.com/" target="_blank">Sideline</a></li><li><a href="https://iplum.com/" target="_blank">iPlum</a></li><li><a href="https://crypton.sh/" target="_blank">Crypton.sh</a></li><li><a href="https://www.virtualpostmail.com/" target="_blank">VirtualPostMail</a></li><li><a href="https://usshortcodedirectory.com/" target="_blank">US Short Code Directory</a></li><li><a href="https://trainfo.iconectiv.com/related-sites" target="_blank">TRA Related Sites</a></li></ul></div><div class="category-box"><h3>Plataformas de Redes Sociales</h3><ul><li><a href="https://www.social-searcher.com/" target="_blank">Social Searcher</a></li><li><a href="https://www.mtg-bi.com/" target="_blank">Social Links Tool</a></li><li><a href="https://www.meltwater.com/en" target="_blank">Meltwater</a></li><li><a href="https://findmyfbid.com/" title="Find my Facebook ID" target="_blank">Find my Facebook ID</a></li><li><a href="https://github.com/sowdust/ffff" target="_blank">FFFF (Find Facebook Friends)</a></li><li><a href="https://github.com/megadose/facebook_totem" target="_blank">Facebook Totem</a></li><li><a href="https://commentpicker.com/" target="_blank">Comment Picker</a></li><li><a href="https://foller.me/" target="_blank">Foller.me (Twitter)</a></li><li><a href="https://accountanalysis.app/" target="_blank">Account Analysis (Twitter)</a></li><li><a href="https://tweeterid.com/" title="TweeterID - Twitter ID converter" target="_blank">TweeterID</a></li><li><a href="https://github.com/Datalux/Osintgram" target="_blank">Osintgram (Instagram)</a></li><li><a href="https://www.modash.io/instagram-email-finder" target="_blank">Modash IG Email Finder</a></li><li><a href="https://vidnice.com/" title="TikTok Web Viewer Online" target="_blank">VidNice (TikTok)</a></li><li><a href="https://github.com/mxrch/ghunt" target="_blank">GHunt (Google Accounts)</a></li><li><a href="https://discord.id/" title="Discord Lookup" target="_blank">Discord ID Lookup</a></li></ul></div><div class="category-box"><h3>Inteligencia de Aplicaciones Móviles</h3><ul><li><a href="https://www.smat-app.com/timeline?searchTerm=election" target="_blank">SMAT (Análisis de Redes)</a></li><li><a href="https://www.applyzer.com/" target="_blank">Applyzer</a></li><li><a href="https://www.appannie.com/en/apps/ios/top/" target="_blank">App Annie (Data.ai)</a></li></ul></div></div> 
-		<div class="category-box">
+                    <li><a href="https://www.voilanorbert.com/" target="_blank">Voila Norbert</a></li></ul></div><div class="category-box"><h3>Investigación de Números de Teléfono</h3><ul><li><a href="https://phonebook.cz/" target="_blank">Phonebook.cz</a></li><li><a href="https://github.com/sundowndev/PhoneInfoga" target="_blank">PhoneInfoga (GitHub)</a></li><li><a href="https://demo.phoneinfoga.crvx.fr/#/" target="_blank">PhoneInfoga (Demo)</a></li><li><a href="https://github.com/Chr0m0s0m3s/DeadTrap" target="_blank">DeadTrap (GitHub)</a></li><li><a href="https://tools.epieos.com/phone.php" target="_blank">Epieos Phone Tools</a></li><li><a href="https://www.zlookup.com/" target="_blank">Zlookup</a></li><li><a href="https://www.numlookup.com/" target="_blank">Numlookup</a></li><li><a href="https://phonesear.ch/" target="_blank">PhoneSear.ch</a></li><li><a href="https://www.neutrinoapi.com/account/main/" target="_blank">Neutrino API</a></li><li><a href="https://www.everyoneapi.com/" target="_blank">EveryoneAPI</a></li><li><a href="https://www.martinvigo.com/tools/phonerator/" target="_blank">Phonerator</a></li></ul></div><div class="category-box"><h3>Servicios de SMS y Verificación</h3><ul><li><a href="http://receive-sms-online.com/" target="_blank">Receive SMS Online</a></li><li><a href="https://temp-sms.org/" target="_blank">Temp SMS</a></li><li><a href="https://verifywithsms.com/" target="_blank">Verify With SMS</a></li><li><a href="https://www.textverified.com/" target="_blank">TextVerified</a></li><li><a href="https://www.juicysms.com/" target="_blank">JuicySMS</a></li><li><a href="https://smsprivacy.org/" target="_blank">SMS Privacy</a></li><li><a href="https://pastebin.com/phdkJg4G" target="_blank">Disposable SMS (Lista)</a></li></ul></div><div class="category-box"><h3>Servicios de Número Virtual</h3><ul><li><a href="https://www.sideline.com/" target="_blank">Sideline</a></li><li><a href="https://iplum.com/" target="_blank">iPlum</a></li><li><a href="https://crypton.sh/" target="_blank">Crypton.sh</a></li><li><a href="https://www.virtualpostmail.com/" target="_blank">VirtualPostMail</a></li><li><a href="https://usshortcodedirectory.com/" target="_blank">US Short Code Directory</a></li><li><a href="https://trainfo.iconectiv.com/related-sites" target="_blank">TRA Related Sites</a></li></ul></div><div class="category-box"><h3>Plataformas de Redes Sociales</h3><ul><li><a href="https://www.social-searcher.com/" target="_blank">Social Searcher</a></li><li><a href="https://www.mtg-bi.com/" target="_blank">Social Links Tool</a></li><li><a href="https://www.meltwater.com/en" target="_blank">Meltwater</a></li><li><a href="https://findmyfbid.com/" title="Find my Facebook ID" target="_blank">Find my Facebook ID</a></li><li><a href="https://github.com/sowdust/ffff" target="_blank">FFFF (Find Facebook Friends)</a></li><li><a href="https://github.com/megadose/facebook_totem" target="_blank">Facebook Totem</a></li><li><a href="https://commentpicker.com/" target="_blank">Comment Picker</a></li><li><a href="https://foller.me/" target="_blank">Foller.me (Twitter)</a></li><li><a href="https://accountanalysis.app/" target="_blank">Account Analysis (Twitter)</a></li><li><a href="https://tweeterid.com/" title="TweeterID - Twitter ID converter" target="_blank">TweeterID</a></li><li><a href="https://github.com/Datalux/Osintgram" target="_blank">Osintgram (Instagram)</a></li><li><a href="https://www.modash.io/instagram-email-finder" target="_blank">Modash IG Email Finder</a></li><li><a href="https://vidnice.com/" title="TikTok Web Viewer Online" target="_blank">VidNice (TikTok)</a></li><li><a href="https://github.com/mxrch/ghunt" target="_blank">GHunt (Google Accounts)</a></li><li><a href="https://discord.id/" title="Discord Lookup" target="_blank">Discord ID Lookup</a></li></ul></div><div class="category-box"><h3>Inteligencia de Aplicaciones Móviles</h3><ul><li><a href="https://www.smat-app.com/timeline?searchTerm=election" target="_blank">SMAT (Análisis de Redes)</a></li><li><a href="https://www.applyzer.com/" target="_blank">Applyzer</a></li><li><a href="https://www.appannie.com/en/apps/ios/top/" target="_blank">App Annie (Data.ai)</a></li>
+		          </ul>
+                </div>   
+                  <div class="category-box">
                 <h3>Location to track people</h3>
                 <ul>
                     <li><a href="http://www.familytreenow.com/" target="_blank">FamilyTreeNow</a></li>
@@ -368,9 +446,30 @@
                     <li><a href="http://www.politicalmoneyline.com/" target="_blank">Political MoneyLine</a></li>
                     <li><a href="https://www.brbpub.com/" target="_blank">BRB Publications</a></li>
                     <li><a href="https://www.kvk.nl/" target="_blank">KVK (Países Bajos)</a></li>
-                    <li><a href="https://www.delpher.nl/nl/kranten" target="_blank">Delpher (Periódicos Históricos)</a></li></ul></div><div class="category-box"><h3>Registros Comerciales y Personales</h3><ul><li><a href="https://www.owens.com/" target="_blank">Owens OnLine (Reportes de Crédito)</a></li><li><a href="https://www.wipo.int/amc/en/domains/" target="_blank">WIPO (Dominios)</a></li><li><a href="https://www.udrpsearch.com/" target="_blank">UDRP Search (Disputas de Dominios)</a></li><li><a href="https://www.dndisputes.com/" target="_blank">DN Disputes</a></li><li><a href="https://www3.wipo.int/madrid/monitor/en/" target="_blank">WIPO Madrid Monitor (Marcas)</a></li><li><a href="https://registryfinder.com/" target="_blank">Registry Finder (Registros de Regalos)</a></li></ul></div><div class="category-box"><h3>Datos, Estadísticas y Fact-Checking</h3><ul><li><a href="https://openresearch-repository.anu.edu.au/" target="_blank">Open Research Repository</a></li><li><a href="https://link.springer.com/" target="_blank">Springer Research</a></li><li><a href="https://b-ok.cc/" target="_blank">B-OK Electronic Library</a></li><li><a href="https://datareportal.com/" target="_blank">DataReportal (Insights Digitales)</a></li><li><a href="https://www.politifact.com/" target="_blank">PolitiFact (Verificación de Hechos)</a></li></ul></div></div>
-    </section>
-	<section class="category-box">
+                    <li><a href="https://www.delpher.nl/nl/kranten" target="_blank">Delpher (Periódicos Históricos)</a></li>    </ul>
+                </div>
+                <div class="category-box">
+                    <h3>Registros Comerciales y Personales</h3>
+                    <ul>                       
+                    <li><a href="https://www.owens.com/" target="_blank">Owens OnLine (Reportes de Crédito)</a></li>
+                    <li><a href="https://www.wipo.int/amc/en/domains/" target="_blank">WIPO (Dominios)</a></li>
+                    <li><a href="https://www.udrpsearch.com/" target="_blank">UDRP Search (Disputas de Dominios)</a></li>
+                    <li><a href="https://www.dndisputes.com/" target="_blank">DN Disputes</a></li>
+                    <li><a href="https://www3.wipo.int/madrid/monitor/en/" target="_blank">WIPO Madrid Monitor (Marcas)</a></li>
+                    <li><a href="https://registryfinder.com/" target="_blank">Registry Finder (Registros de Regalos)</a></li>
+                </ul>               
+                </div>
+                <div class="category-box">
+                    <h3>Datos, Estadísticas y Fact-Checking</h3>
+                    <ul>
+                    <li><a href="https://openresearch-repository.anu.edu.au/" target="_blank">Open Research Repository</a></li>
+                    <li><a href="https://link.springer.com/" target="_blank">Springer Research</a></li>
+                    <li><a href="https://b-ok.cc/" target="_blank">B-OK Electronic Library</a></li>
+                    <li><a href="https://datareportal.com/" target="_blank">DataReportal (Insights Digitales)</a></li>
+                    <li><a href="https://www.politifact.com/" target="_blank">PolitiFact (Verificación de Hechos)</a></li>
+                </ul> 
+            </div>          
+	<div class="category-box">
                 <h3>Perfiles e Información de Países</h3>
                 <ul>
                     <li><a href="https://www.cia.gov/the-world-factbook/" target="_blank">CIA World Factbook</a></li>
@@ -381,10 +480,14 @@
                     <li><a href="https://globaledge.msu.edu/" target="_blank">GlobalEdge</a></li>
                     <li><a href="https://www.gov.uk/government/collections/country-policy-and-information-notes" target="_blank">UK Gov Country Notes</a></li>
                     <li><a href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=eng" target="_blank">Canada World Information</a></li>
+                   <li><a href="https://www.international.gc.ca/cil-cai/country_insights-apercus_pays/countryinsights-apercuspays.aspx?lang=eng" target="_blank">Canada Country Insights</a></li>
+                    <li><a href="https://www.refworld.org/type,COUNTRYPROF,,,,,0.html" target="_blank">Refworld Country Profiles</a></li>
                     <li><a href="https://www.routledge.com/" target="_blank">Routledge Handbooks</a></li>
                     <li><a href="https://www.govdata.de/" target="_blank">GovData (Alemania)</a></li>
                 </ul>
-            </section>
+              </div>
+        </div>
+    </section>
 
     <section class="main-section">
         <h2>🏢 Dominios, IP y Análisis Web</h2>
